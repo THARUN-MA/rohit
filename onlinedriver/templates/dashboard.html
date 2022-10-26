@@ -1,2 +1,26 @@
 <h1>Welcome Users</h1>
 <a href="{% url "od:logout"%}">Logout</a>
+
+{% if request %}
+  <h4>New Job</h4>
+  <label for="">Owner Email:-</label>&nbsp
+  {{data.owneremail}}<br><br>
+  <label for="">Start date:-</label>&nbsp
+  {{data.startdate}}&nbsp{{data.starttime}}<br><br>
+  <label for="">End date:-</label>&nbsp
+  {{data.enddate}}&nbsp{{data.endtime}}<br><br>
+  <a href="{% url "od:acceptride" value=data.rid%}"><button>Accept</button></a>
+  <a href="{% url "od:rejectride" value=data.rid%}"><button>Reject</button></a>
+{% elif inr %}
+  <h4>Your in ride</h4><br><br>
+  <label for="">Owner Email:-</label>&nbsp
+  {{data.owneremail}}<br><br>
+  <label for="">Start date:-</label>&nbsp
+  {{data.startdate}}&nbsp{{data.starttime}}<br><br>
+  <label for="">End date:-</label>&nbsp
+  {{data.enddate}}&nbsp{{data.endtime}}<br><br>
+  <a href="{% url "od:finishride" value=data.rid%}"><button>Finish Ride</button></a>
+
+{%  else %}
+<h3>Your Status is Idle</h3>
+{% endif %}

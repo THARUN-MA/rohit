@@ -1,0 +1,14 @@
+<h1>Create Ride</h1>
+<a href="{% url "od:logout"%}">Logout</a>
+<a href="{% url "od:ownerdashboard"%}">Home</a>
+<br><br><br>
+{% if data %}
+<table>
+  {% for i in data %}
+  <tr>
+    <td>{{i.name}}</td>
+    <td><a href="{% url "od:confirmride" value=i.email %}"><button>Hire</button></a></td>
+  </tr>
+  {% endfor %}
+</table>
+{% endif %}

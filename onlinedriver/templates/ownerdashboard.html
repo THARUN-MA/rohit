@@ -1,2 +1,11 @@
 <h1>Welcome Owner</h1>
-<a href="{% url "od:logout"%}">Logout</a>
+<a href="{% url "od:logout"%}">Logout</a><br><br>
+{% if data %}
+<a href="{% url "od:createride"%}"><button disabled>Create Ride</button></a>
+
+<a href="{% url "od:createride"%}"><button>Manage Ride</button></a>
+{% else %}
+<a href="{% url "od:createride"%}"><button>Create Ride</button></a>
+
+<a href="{% url "od:createride"%}"><button disabled>Manage Ride</button></a>
+{% endif %}
